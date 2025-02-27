@@ -11,10 +11,10 @@
 #   }
 # }
 
-# # Route 53 DNS Zone for Kubernetes Cluster
-# resource "aws_route53_zone" "k8s_zone" {
-#   name = "mupando.com"
-# }
+# Route 53 DNS Zone for Kubernetes Cluster
+resource "aws_route53_zone" "k8s_zone" {
+  name = "mupando.com"
+}
 
 
 
