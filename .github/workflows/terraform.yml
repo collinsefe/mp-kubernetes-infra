@@ -3,6 +3,8 @@ name: 'Terraform Deployment'
 on:
   push:
     branches: [ "main", "dev" ]
+    paths:
+      terraform
   pull_request:
     branches: [ "main" ]
   
