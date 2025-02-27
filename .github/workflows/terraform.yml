@@ -2,8 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ "main" ]
-    paths: terraform
+    branches: [ "main", "demo" ]
   pull_request:
     branches: [ "main" ]
       
