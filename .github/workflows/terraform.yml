@@ -14,7 +14,7 @@ env:
     # S3 bucket for the Terraform state
     TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET}}
     AWS_REGION: eu-west-2
-    EKS_CLUSTER: mp-eks-cluster
+    EKS_CLUSTER: kitops-eks
 
 permissions:
   contents: read
