@@ -4,6 +4,6 @@ resource "aws_ebs_volume" "redis_volume" {
   type              = "gp2"        # General Purpose SSD (can be adjusted based on your needs)
 }
 
-output "ebs_volume_id" {
-  value = aws_ebs_volume.redis_volume.id
-}
+# output "ebs_volume_id" {
+#   value = aws_ebs_volume.redis_volume.id
+# }
