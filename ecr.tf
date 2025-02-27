@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "foo" {
-  name                 = "bar"
+  name                 = "mp-k8s-cluster"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
