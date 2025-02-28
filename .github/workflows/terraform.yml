@@ -65,6 +65,7 @@ jobs:
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push' && github.event.head_commit.message != 'Merge pull request'
       run: terraform apply -auto-approve -input=false planfile
 
     - name: Configure AWS credentials
@@ -76,9 +77,11 @@ jobs:
   
     - name: Get Kube config file
       id: getconfig
+      if: steps.apple.outcome == 'success'
       run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER }} 
 
     - name: Install Ingress controller
+      if: steps.apple.outcome == 'success' && steps.getconfig.outcome == 'success'
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.3/deploy/static/provider/aws/deploy.yaml
 
 
